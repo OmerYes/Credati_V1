@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <section id="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="about-logo">
+
+                        <p>Çözüm ve hizmetlerimiz hakkında detaylı bilgi için bizimle irtibata geçin. </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <!-- Form itself -->
+                    <form name="sentMessage" id="contactForm" action="/Credati/iletisim/" method="post" enctype="multipart/form-data" novalidate>
+                        <h3>Bize Yazın</h3>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="text" class="form-control"
+                                       placeholder="Full Name" id="name" name="name" required
+                                       data-validation-required-message="Please enter your name" />
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="email" class="form-control" placeholder="Email"
+                                       id="email" required
+                                       data-validation-required-message="Please enter your email" />
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <textarea rows="10" cols="100" class="form-control"
+                                          placeholder="Message" id="message" required
+                                          data-validation-required-message="Please enter your message" minlength="5"
+                                          data-validation-minlength-message="Min 5 characters"
+                                          maxlength="999" style="resize:none"></textarea>
+                            </div>
+                        </div>
+                        <div id="success"> </div> <!-- For success/fail messages -->
+                        <button type="submit" class="btn btn-primary pull-right">Send</button><br />
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
