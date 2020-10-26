@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
@@ -52,20 +53,33 @@ namespace Credati.Controllers
         [HttpPost]
         public ActionResult Contact(string Name,string Body,string Email)
         {
-            SmtpClient smtpClient = new SmtpClient("domain.a2hosted.com", 25);
+            string smtpAddress = "smtp.gmail.com";
+            int portNumber = 587;
+            bool enableSSL = true;
+            string emailFromAddress = "yesilmenomer47@gmail.com"; //Sender Email Address  
+            string password = "2128292152120081035"; //Sender Password  
+            string emailToAddress = "omer.yesilmen@bilgeadam.com"; //Receiver Email Address  
+            string subject = " Contact formdan gelen mail";
+            string body ="mail from :"+Email+"  gönderici adı  :"+Name+ "<br>"+"<br>"+ Body;
 
-            smtpClient.Credentials = new System.Net.NetworkCredential("contact@credati.com", "7k!9agT5");
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            using (MailMessage mail = new MailMessage())
+            {
+                mail.From = new MailAddress(emailFromAddress);
+                mail.To.Add(emailToAddress);
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = true;
+                using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
+                {
+                    smtp.Credentials = new NetworkCredential(emailFromAddress, password);
+                    smtp.EnableSsl = enableSSL;
+                    smtp.Send(mail);
 
-            MailMessage mailMessage = new MailMessage(txtFrom.Text, txtTo.Text);
-            mailMessage.Subject = txtSubject.Text;
-            mailMessage.Body = txtBody.Text;
+                }
+            }
 
-            
-                smtpClient.Send(mailMessage);
-                Label1.Text = "Message sent";
-          
-            return View();
+
+                    return View();
         }
     }
 }
