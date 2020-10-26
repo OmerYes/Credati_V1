@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -49,8 +50,21 @@ namespace Credati.Controllers
 
         [Route("iletisim")]
         [HttpPost]
-        public ActionResult Contact(string name)
+        public ActionResult Contact(string Name,string Body,string Email)
         {
+            SmtpClient smtpClient = new SmtpClient("domain.a2hosted.com", 25);
+
+            smtpClient.Credentials = new System.Net.NetworkCredential("contact@credati.com", "7k!9agT5");
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+            MailMessage mailMessage = new MailMessage(txtFrom.Text, txtTo.Text);
+            mailMessage.Subject = txtSubject.Text;
+            mailMessage.Body = txtBody.Text;
+
+            
+                smtpClient.Send(mailMessage);
+                Label1.Text = "Message sent";
+          
             return View();
         }
     }

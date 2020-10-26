@@ -118,7 +118,9 @@
     <Content Include="Content\js\jquery.isotope.min.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\js\jquery.validate.min.js" />
     <Content Include="Content\js\modernizr.custom.js" />
+    <Content Include="Content\js\validate\cst_validate.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
