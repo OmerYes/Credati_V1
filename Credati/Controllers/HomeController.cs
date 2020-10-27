@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Credati.Controllers
 {
-    [RoutePrefix("Credati")]
+    [RoutePrefix("credati")]
     public class HomeController : Controller
     {
         // GET: Home
@@ -56,9 +56,9 @@ namespace Credati.Controllers
             string smtpAddress = "smtp.gmail.com";
             int portNumber = 587;
             bool enableSSL = true;
-            string emailFromAddress = "yesilmenomer47@gmail.com"; //Sender Email Address  
-            string password = "2128292152120081035"; //Sender Password  
-            string emailToAddress = "omer.yesilmen@bilgeadam.com"; //Receiver Email Address  
+            string emailFromAddress = "credatic@gmail.com"; //Sender Email Address  
+            string password = "Mardin8292!"; //Sender Password  
+            string emailToAddress = "contact@credati.com"; //Receiver Email Address  
             string subject = " Contact formdan gelen mail";
             string body ="mail from :"+Email+"  gönderici adı  :"+Name+ "<br>"+"<br>"+ Body;
 
