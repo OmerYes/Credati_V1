@@ -152,6 +152,7 @@
     <Content Include="Views\Home\Outsourcing.cshtml" />
     <Content Include="Views\Home\It.cshtml" />
     <Content Include="Views\Home\Constult.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -13,6 +13,9 @@ namespace Credati
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            GlobalFilters.Filters.Add(new RequireHttpsAttribute(true));
+            //if (!Context.Request.IsSecureConnection)
+            //    Response.Redirect(Context.Request.Url.ToString().Replace("http:", "https"));
         }
     }
 }
